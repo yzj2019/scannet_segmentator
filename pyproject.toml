@@ -1,0 +1,24 @@
+[build-system]
+requires = [
+    "setuptools>=42",
+    "wheel",
+    "torch>=1.0.0",
+    "numpy",
+    "numba",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "scannet_segmentator"
+version = "1.0"
+description = "ScanNet segmentator with C++ extensions"
+requires-python = ">=3.8"
+dependencies = [
+    "torch>=1.0.0",
+    "numpy",
+    "numba",
+]
+
+[tool.setuptools]
+packages = ["scannet_segmentator"]
+package-dir = {"scannet_segmentator" = "functions"}
