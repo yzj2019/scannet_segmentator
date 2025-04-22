@@ -19,9 +19,9 @@ sources = [
 setup(
     ext_modules=[
         CppExtension(
-            name='libsegmentator._C',
+            name="libsegmentator._C",
             sources=sources,
-            extra_compile_args=['-std=c++17'],
+            extra_compile_args=["-std=c++17"],
         )
     ],
     cmdclass={"build_ext": BuildExtension},

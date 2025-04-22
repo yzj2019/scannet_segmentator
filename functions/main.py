@@ -1,9 +1,12 @@
 import torch
-from libsegmentator._C import segment_mesh as segment_mesh_fn, segment_point as segment_point_fn
+from libsegmentator._C import (
+    segment_mesh as segment_mesh_fn,
+    segment_point as segment_point_fn,
+)
 
 
 def segment_mesh(vertices, faces, kThresh=0.01, segMinVerts=20):
-    """ segment a mesh (CPU)
+    """segment a mesh (CPU)
 
     Args:
         vertices (torch.Tensor): vertices of shape==(nv, 3)
@@ -19,7 +22,7 @@ def segment_mesh(vertices, faces, kThresh=0.01, segMinVerts=20):
 
 
 def segment_point(vertices, normals, edges, kThresh=0.01, segMinVerts=20):
-    """ segment a point cloud (CPU)
+    """segment a point cloud (CPU)
 
     Args:
         vertices (torch.Tensor): vertices of shape==(nv, 3)
@@ -33,4 +36,3 @@ def segment_point(vertices, normals, edges, kThresh=0.01, segMinVerts=20):
     index = segment_point_fn(vertices, normals, edges, kThresh, segMinVerts)
     index = torch.unique(index, return_inverse=True)[1]
     return index
-
